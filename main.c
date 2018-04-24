@@ -52,6 +52,7 @@ int main(int argc, char *argv[]) {
         case '3' : f_shaderf = "shaders/mandelbrot3.frag"; break;
         case '4' : f_shaderf = "shaders/test.frag"; break;
         case '5' : f_shaderf = "shaders/static.frag"; break;
+        case '6' : f_shaderf = "shaders/julia.frag"; break;
         default: fprintf(stderr, "%s\n", "Usage: ./fractal <option>"); exit(0);
     }
 
