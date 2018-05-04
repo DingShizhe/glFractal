@@ -1,15 +1,14 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
+#include "header.h"
+#include "ldsdr.h"
+#include "util.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "ldsdr.h"
-#include "util.h"
 #include <GLFW/glfw3.h>
 
-#define WIDTH 800
-#define HEIGHT 600
 
 // cursor position at each momment
 double xpos, ypos;
@@ -61,7 +60,7 @@ int main(int argc, char *argv[]) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Mandelbrot", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "glFractal", NULL, NULL);
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_press_callback);
     glfwSetMouseButtonCallback(window, mouse_button_callback);
@@ -128,8 +127,6 @@ int main(int argc, char *argv[]) {
         set_uniform1f(prog, "totalOffY", -totalOffY);
         set_uniform1f(prog, "ratio", ratio);
 
-        // glBindVertexArray(VAO);
-        // glDrawArrays(GL_TRIANGLES, 0, 3);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);

@@ -1,4 +1,6 @@
+#include "header.h"
 #include "util.h"
+#include "svpng.inc"
 #include <math.h>
 #include <stdio.h>
 
@@ -12,8 +14,22 @@ extern double ratio;
 // if get ESC
 //     then exit
 void key_press_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE) {
-        glfwSetWindowShouldClose(window, 1);
+    // putchar(key);
+    switch (key) {
+        case 'Q':
+        case GLFW_KEY_ESCAPE:
+            glfwSetWindowShouldClose(window, 1);
+            break;
+        case 'S':
+            printf("%s\n", "Saving Frame...");
+            FILE* fp = fopen("out.png", "wb");
+            unsigned char pixels[WIDTH * HEIGHT * 3];
+            glReadPixels(0,0, WIDTH, HEIGHT, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+            svpng(fp, WIDTH, HEIGHT, pixels, 0);
+            fclose(fp);
+            break;
+        default:
+            break;
     }
 }
 

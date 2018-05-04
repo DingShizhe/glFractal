@@ -17,7 +17,11 @@ unsigned int create_shader(const char *shader_fname, unsigned int SHADER_TYPE) {
     unsigned int shader_flen = ftell(shader_fp);
     fseek(shader_fp, 0, SEEK_SET);
     char *buffer = malloc(sizeof(char) * (shader_flen + 1));
-    fread(buffer, 1, shader_flen, shader_fp);
+    size_t sz = fread(buffer, 1, shader_flen, shader_fp);
+    if (sz < 0) {
+        fprintf(stderr, "%s\n", "Error: Read shader file failed.");
+        exit(-1);
+    }
     fclose(shader_fp);
     buffer[shader_flen] = '\0';
     // compile shader file

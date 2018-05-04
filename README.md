@@ -15,4 +15,8 @@ $ make
 $ ./fractal
 ```
 
+## Render Example
 
+<img src="./mandelbrot1.png" width="300"/> <img src="./mandelbrot2.png" width="300"/> 
+
+<img src="./mandelbrot3.png" width="300"/> <img src="./julia1.png" width="300"/> 

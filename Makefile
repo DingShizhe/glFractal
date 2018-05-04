@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-CFLAGS =  -pedantic -Wall
+CFLAGS =  -pedantic -Wall -O3
 LDFLAGS = -lglfw3 -lGL -lX11 -lpthread -lXrandr \
 		  -lXi -lrt -lm -ldl -lXxf86vm -lGLEW  \
 		  -lXinerama -lXcursor -lstdc++
