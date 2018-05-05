@@ -5,6 +5,7 @@ a simple fractal drawing program based on OpenGL
 
 - [GLFW3](http://www.glfw.org/download.html)
 - [GLEW](http://glew.sourceforge.net/) 
+- [svpng](https://github.com/miloyip/svpng/blob/master/svpng.inc) 
 
 ## Usage
 
